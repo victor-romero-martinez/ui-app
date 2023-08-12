@@ -1,0 +1,51 @@
+export const history = [
+  {
+    id: 1,
+    monto: 1000,
+    tipo: "depósito",
+    fecha: "2023-12-17T05:22:01.431Z",
+    nombreNegocio: "Mi Negocio 1",
+  },
+  {
+    id: 2,
+    monto: 1000,
+    tipo: "retiro",
+    fecha: "2023-11-18T05:22:01.431Z",
+    nombreNegocio: "Mi Negocio 2",
+  },
+  {
+    id: 3,
+    monto: 1000,
+    tipo: "retiro",
+    fecha: "2023-10-19T05:22:01.431Z",
+    nombreNegocio: "Mi Negocio 3",
+  },
+  {
+    id: 4,
+    monto: 2000,
+    tipo: "depósito",
+    fecha: "2023-09-20T05:22:01.431Z",
+    nombreNegocio: "Mi Negocio 4",
+  },
+  {
+    id: 5,
+    monto: 1000,
+    tipo: "retiro",
+    fecha: "2023-11-18T05:22:01.431Z",
+    nombreNegocio: "Mi Negocio 5",
+  },
+  {
+    id: 6,
+    monto: 1000,
+    tipo: "retiro",
+    fecha: "2023-10-19T05:22:01.431Z",
+    nombreNegocio: "Mi Negocio 6",
+  },
+  {
+    id: 7,
+    monto: 2000,
+    tipo: "depósito",
+    fecha: "2023-09-20T05:22:01.431Z",
+    nombreNegocio: "Mi Negocio 7",
+  },
+];
