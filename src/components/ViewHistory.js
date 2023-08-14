@@ -12,14 +12,14 @@ export default function ViewHistory({ item }) {
             <>
               <Text style={[st.txt, { color: "#e64a19" }]}>-</Text>
               <Text style={[st.txt, { color: "#e64a19" }]}>
-                Gs.{item.monto}
+                Gs. {item.monto}
               </Text>
             </>
           ) : (
             <>
               <Text style={[st.txt, { color: "#1ed760" }]}>+</Text>
               <Text style={[st.txt, { color: "#1ed760" }]}>
-                Gs.{item.monto}
+                Gs. {item.monto}
               </Text>
             </>
           )}

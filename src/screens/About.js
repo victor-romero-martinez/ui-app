@@ -25,12 +25,12 @@ const st = StyleSheet.create({
   background: {
     width: Dimensions.get("screen").width,
     height: Dimensions.get("screen").height,
+    marginTop: -50,
   },
   container: {
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    marginTop: -50,
   },
   txt: {
     fontSize: 16,

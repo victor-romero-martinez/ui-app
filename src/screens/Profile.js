@@ -50,10 +50,11 @@ const st = StyleSheet.create({
   background: {
     width: Dimensions.get("screen").width,
     height: Dimensions.get("screen").height,
-    position: "absolute",
+    marginTop: -50,
   },
   container: {
-    margin: 10,
+    marginTop: 34,
+    margin: 14,
     paddingVertical: 10,
   },
   imgContainer: {

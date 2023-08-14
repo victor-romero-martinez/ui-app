@@ -1,4 +1,4 @@
-import { StyleSheet, View, Image, Pressable } from "react-native";
+import { StyleSheet, View, Image, TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
 import Button from "./Button";
@@ -9,16 +9,18 @@ export default function HeaderPictureProfile({ picture }) {
   return (
     <View style={st.container}>
       {picture ? (
-        <Pressable onPress={() => navigation.navigate('Profile')}>
+        <TouchableOpacity onPress={() => navigation.navigate("Profile")}>
           <Image
             style={st.img}
             source={{
               uri: picture,
             }}
           />
-        </Pressable>
+        </TouchableOpacity>
       ) : (
-        <Button name="user" size={24} screenChange="Profile" />
+        <TouchableOpacity onPress={() => navigation.navigate("Profile")}>
+          <Button name="user" size={24} />
+        </TouchableOpacity>
       )}
     </View>
   );
@@ -37,8 +39,8 @@ const st = StyleSheet.create({
     height: 40,
     width: 40,
     borderRadius: 20,
-    resizeMode: 'center',
-    borderColor: '#fff',
-    borderWidth: 2
+    resizeMode: "center",
+    borderColor: "#fff",
+    borderWidth: 2,
   },
 });

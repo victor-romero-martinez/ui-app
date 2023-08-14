@@ -1,27 +1,73 @@
-import { StyleSheet, Text, View } from "react-native";
-import { FontAwesome5 } from "@expo/vector-icons";
+import {
+  StyleSheet,
+  Text,
+  View,
+  TouchableOpacity,
+  ToastAndroid,
+  Clipboard,
+} from "react-native";
+import { useNavigation } from "@react-navigation/native";
+import { useState } from "react";
 
-
+import Button from "./Button";
+import { saldo } from "../db/data";
 const account = 520640;
-const saldo = 45000;
+
+// reemplazar
+const secret = saldo
+  .split("")
+  .map((item) => item.replace(/\d/, "*"))
+  .join("");
 
 const CardDetails = () => {
+  const [hide, setHide] = useState(false);
+  const navigation = useNavigation();
+
+  // copiar al clipboar
+  const copyToClipboard = () => {
+    Clipboard.setString(`N: ${account}`);
+    ToastAndroid.show(`Copiado N: ${account}`, ToastAndroid.SHORT);
+  };
+
+  // cabiar presentacion
+  const handelShow = () => {
+    setHide((prev) => !prev);
+  };
+
+  // mostrar u ocultar dato
+  const showHide = () => {
+    if (hide) {
+      return (
+        <TouchableOpacity onPress={handelShow} style={st.grup}>
+          <Text style={st.txt}>Gs. {secret}</Text>
+          <Button name="eye" size={18} color="#2a2a40" />
+        </TouchableOpacity>
+      );
+    } else {
+      return (
+        <TouchableOpacity onPress={handelShow} style={st.grup}>
+          <Text style={st.txt}>Gs. {saldo}</Text>
+          <Button name="eye-slash" size={18} color="#2a2a40" />
+        </TouchableOpacity>
+      );
+    }
+  };
+
   return (
     <View style={st.container}>
       <View>
         <Text style={[st.txt, { fontSize: 16 }]}>Cuenta</Text>
-        <View style={st.grup}>
-          <Text style={st.txt}>N:{account}</Text>
-          <FontAwesome5 name="copy" size={18} color="#2a2a40" />
-        </View>
+        <TouchableOpacity onPress={copyToClipboard} style={st.grup}>
+          <Text style={st.txt}>N: {account}</Text>
+          <Button name="copy" size={18} color="#2a2a40" />
+        </TouchableOpacity>
       </View>
       <View>
-        <Text style={[st.txt, { fontSize: 16 }]}>Saldo diponible</Text>
-        <View style={st.grup}>
-          <Text style={st.txt}>Gs.{saldo}</Text>
-          <FontAwesome5 name="eye-slash" size={18} color="#2a2a40" />
-        </View>
-        <Text style={st.details}>Ver mis datos</Text>
+        <Text style={[st.txt, { fontSize: 16 }]}>Dinero diponible</Text>
+        {showHide()}
+        <TouchableOpacity onPress={() => navigation.navigate("inprogress")}>
+          <Text style={st.details}>Ver mis datos</Text>
+        </TouchableOpacity>
       </View>
     </View>
   );
@@ -41,7 +87,7 @@ const st = StyleSheet.create({
     borderRadius: 10,
     borderColor: "#cccccc",
     borderWidth: 1,
-    elevation: 3
+    elevation: 3,
   },
   txt: {
     fontSize: 20,
@@ -53,6 +99,7 @@ const st = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "center",
     alignItems: "center",
+    gap: 5,
   },
   details: {
     fontSize: 14,

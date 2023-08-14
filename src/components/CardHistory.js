@@ -1,4 +1,5 @@
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 import { FontAwesome5 } from "@expo/vector-icons";
 
 import ViewHistory from "./ViewHistory";
@@ -8,15 +9,20 @@ import { history } from "../db/history";
 const Render = history.slice(0, 4);
 
 const CardHistory = () => {
+  const navigation = useNavigation();
+
   return (
     <View style={st.container}>
       {Render.map((item) => (
         <ViewHistory key={item.id} item={item} />
       ))}
-      <View style={st.txtIcon}>
-        <Text style={st.txt}>Movimiento</Text>
+      <TouchableOpacity
+        onPress={() => navigation.navigate("HistoryScreen")}
+        style={st.txtIcon}
+      >
+        <Text style={st.txt}>Movimientos</Text>
         <FontAwesome5 name="exchange-alt" size={16} color="#007acc" />
-      </View>
+      </TouchableOpacity>
     </View>
   );
 };
@@ -43,7 +49,7 @@ const st = StyleSheet.create({
   },
   txt: {
     fontWeight: "bold",
-    paddingRight: 5,
+    paddingRight: 8,
     color: "#007acc",
   },
 });

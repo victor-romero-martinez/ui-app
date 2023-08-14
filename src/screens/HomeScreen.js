@@ -21,11 +21,12 @@ const st = StyleSheet.create({
   background: {
     width: Dimensions.get("screen").width,
     height: Dimensions.get("screen").height,
-    position: "absolute",
+    marginTop: -50,
   },
   container: {
     alignItems: "center",
     justifyContent: "center",
+    marginTop: 50,
     margin: 12,
   },
 });

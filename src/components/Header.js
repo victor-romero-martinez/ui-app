@@ -1,4 +1,6 @@
-import { View, StyleSheet } from "react-native";
+import { View, StyleSheet, TouchableOpacity } from "react-native";
+import { useNavigation } from "@react-navigation/native";
+
 import Button from "./Button";
 import HeaderPictureProfile from "./HeaderPictureProfile";
 import HeaderTitle from "./HeaderTitle";
@@ -7,6 +9,7 @@ import store from "../store/store";
 
 export default function Header() {
   const user = store.getState().user;
+  const navigation = useNavigation();
 
   return (
     <View style={st.container}>
@@ -26,7 +29,9 @@ export default function Header() {
           )}
         </View>
       </View>
-      <Button name="question-circle" size={24} screenChange="About" />
+      <TouchableOpacity onPress={() => navigation.navigate("About")}>
+        <Button name="question-circle" size={24} />
+      </TouchableOpacity>
     </View>
   );
 }
