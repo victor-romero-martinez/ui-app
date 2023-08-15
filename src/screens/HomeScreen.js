@@ -3,6 +3,7 @@ import { StyleSheet, View, ImageBackground, Dimensions } from "react-native";
 import CardHistory from "../components/CardHistory";
 import CardDetails from "../components/CardDetails";
 import BoxButton from "../components/BoxButton";
+import CarouselCard from "../components/CarouselCard";
 const img = require("../assets/seagull-7282992_1280.png");
 
 export default function HomeScreen() {
@@ -12,6 +13,7 @@ export default function HomeScreen() {
         <CardDetails />
         <CardHistory />
         <BoxButton />
+        <CarouselCard />
       </View>
     </ImageBackground>
   );
